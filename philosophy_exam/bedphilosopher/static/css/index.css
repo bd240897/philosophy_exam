@@ -1,0 +1,102 @@
+/*БАЗОВЫЕ НАСТРОЙКИ>*/
+
+* {
+    position: relative;
+    box-sizing: border-box;
+    font-weight: initial;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 16px;
+    line-height: 1.8;
+    color: #000000;
+}
+
+/* ХЕДЕР */
+
+.head_slider{
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*text-align: center;*/
+}
+
+.head_img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    /*object-fit: cover;*/
+}
+
+/*псевдо элемент фон за картинкой*/
+.head_img:after {
+     content: "";
+     position: absolute;
+     left: 0;
+     top: 0;
+     z-index: -1;
+     width: 100%;
+     height: 100%;
+     background: red;
+ }
+
+.head_text_1{
+    z-index: 10;
+    display: block;
+    font-family: Montserrat, serif;
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+}
+
+.head_text_2{
+    z-index: 10;
+    display: block;
+    font-family: Montserrat, serif;
+    font-size: 30px;
+    color: white;
+}
+
+/* ОТВЕтЫ АНТОНЮК */
+
+.antonuk{
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #aba9a9;
+}
+
+.header{
+    font-family: Montserrat, serif;
+    font-size: 30px;
+}
+
+.block_answers{
+    padding: 10px;
+}
+
+.answer_link{
+    font-family: Montserrat, serif;
+    font-size: 18px;
+}
+
+/*ПОДВАЛ*/
+.footer__bottom{
+    margin-top: auto;
+    text-align: center;
+    font-family: Montserrat, serif;
+    font-size: 14px;
+}
