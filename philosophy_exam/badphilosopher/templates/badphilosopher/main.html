@@ -1,0 +1,116 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+<!-- ДОП СТИЛИ -->
+
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+<!--ОТВЕТЫ-->
+
+{% block answers %}
+<!--БЛОК ОБО МНЕ-->
+
+<section class="about_me text_block ">
+    <div class="container">
+        <div class="row d-flex" style="align-items: center; justify-content: center">
+
+            <!-- МОЯ ФОТКА -->
+            <div class="col-lg-3 col-md-6">
+                <div class="my_photo card m-2">
+                    <h4 class="my_photo__title card-header text_block__title" style="color : #8a6d3b">My Photo</h4>
+                    <img class="my_photo__img card-img-top" src="{% static 'img/borisov.jpg' %}" alt="">
+                    <div class="my_photo__body card-body">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-9 col-md-6">
+
+                <!-- О САЙТЕ -->
+                <div class="my_study card m-1">
+
+                    <h4 class="my_study__title text_block__title card-header" style="color : #8a6d3b">About Site</h4>
+                    <div class="my_study__body card-body p-0">
+                        <div class="my_study__text card-text">
+                            <ul class="my_study__list">
+
+                                <li class="my_study__list__item">
+                                    <p class="my_study__pitem">
+                                        Добрый день! Меня зовут
+                                        <b>"Борисов Дмитрий"</b>.
+                                    </p>
+                                </li>
+
+                                <li class="my_study__list__item">
+                                    <p class="my_study__item">
+                                        В данный моент я являюсь аспирантом
+                                        <b>"Московского Физико-технического института"</b>.
+                                    </p>
+
+                                </li>
+
+                                <li class="my_study__list__item">
+                                    <p class="my_study__pitem">
+                                        Данный сайт сделан для хранения ответов на экзамен по предмету
+                                        <b>"Философия науки"</b> которые преподается в на первом курсе аспирантуры МФТИ.
+                                    </p>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ОБО МНЕ -->
+                <div class="my_photo card m-1">
+                    <h4 class="my_photo__title card-header text_block__title" style="color : #8a6d3b">My Contacts</h4>
+                    <div class="my_photo__body card-body">
+                        <div class="general_info">
+                            <div class="general_info_content_inner" data-mcs-theme="minimal-dark">
+                                <div class="general_info_title">General Information:</div>
+                                <ul class="general_info_list p-0">
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="images/icons/icon_1.png" alt=""></div>
+                                        <div class="general_info_text">Name: <span> Борисов Дмитрий Алексеевич</span></div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="images/icons/icon_5.png" alt=""></div>
+                                        <div class="general_info_text">Location: <span>Москва</span></div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="images/icons/icon_2.png" alt=""></div>
+                                        <div class="general_info_text">Date of Birth:  <span>Август 24, 1997</span></div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="images/icons/icon_3.png" alt=""></div>
+                                        <div class="general_info_text">Mail: <a class="general_info__mail" href="mailto:borisov.dmitrii@phystech.edu">borisov.dmitrii@phystech.edu</a></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!--ЧТО УЖЕ ГОТОВО-->
+
+<section class="alredy_done">
+    <div class="container">
+        <h2 class="alredy_done__header"> ЧТО УЖЕ ГОТОВО: </h2>
+        <div class="alredy_done__block d-flex flex-column">
+            <a href="{% url 'answer_list' %}" class="answer_link btn btn-primary m-2 alredy_done__link" >Ответы на вопросы Антонюка</a>
+            <a href="#" class="answer_link btn btn-secondary disabled m-2 alredy_done__link">Ответы на общие вопросы</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -6,11 +6,10 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # модель ответов Антонюка
 class Lections(models.Model):
-    number = models.IntegerField()
-    name_question = RichTextUploadingField(blank=True, null=True)
+    number = models.IntegerField(unique=True)
+    name_question = models.TextField(blank=True, null=True)
     answer = RichTextUploadingField(blank=True, null=True)
     visible = models.BooleanField(blank=True, null=True)
-    url = models.SlugField(blank=True, null=True)
 
     def __str__(self):
         # для отображения в админке

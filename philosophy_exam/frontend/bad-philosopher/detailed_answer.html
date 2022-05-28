@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width,user-scalable=no">
+    <title>Ответы на философию</title>
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Гугл шритфты-->
+    <link href='//fonts.googleapis.com/css?family=Lato:400,700|Kaushan+Script|Montserrat' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css2?family=Source+Serif+4:wght@500&display=swap" rel="stylesheet">
+    <!--мои стили-->
+    <link rel="stylesheet" type="text/css" href="css/answer_list.css">
+    <link rel="stylesheet" type="text/css" href="css/detailed_answer.css">
+</head>
+
+<body>
+
+<!-- НАВИГАЦИЯ -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+    <!-- Иконки -->
+    <div class="container-fluid">
+        <!-- БРЕНД>-->
+        <a href="#" class="navbar-brand text-danger">Borisov</a>
+
+        <!-- Кнопка гамбургер -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Разделы меню -->
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="#" class="nav-link active">Главная</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">Ответы Антонюк</a></li>
+<!--                    <li class="nav-item"><a href="#" class="nav-link active">Ответы Общие</a></li>-->
+<!--                    <li class="nav-item"><a href="#" class="nav-link active">Контакты</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--СЛАЙДЕР-->
+
+<section class="slider">
+    <img class="slider__img" src="img/antonuk_photo_2.jpg" alt="HEADER">
+    <h2 class="slider__text_big"> Ответы на Философию Науки </h2>
+    <p class="slider__text_small"> Сделал Борисов Дмитрий </p>
+</section>
+
+
+<!--ОТВЕТЫ АНТОНЮК-->
+
+<section class="detailed_answer">
+    <div class="container">
+        <h2 class="detailed_answer__header"> ТУТ ЗАГОЛОВОК ОТВЕТОВ НА ВОПРОСЫ </h2>
+        <div class="detailed_answer__text">
+            Мы только что применили миграцию для всех приложений, указанных в INSTALLED_APPS, включая blog. После применения миграций база данных полностью соответствует текущему состоянию моделей.
+            Каждый раз, когда мы будем редактировать models.py, добавляя, удаляя или
+            изменяя поля существующих моделей или добавляя новые модели, мы будем
+            создавать новую миграцию с  помощью команды makemigrations. Так Django
+            сможет отслеживать изменения в  моделях. После создания миграций нужно
+            применять их командой migrate для синхронизации базы данных.
+        </div>
+    </div>
+</section>
+
+<!-- ПОДВАЛ  -->
+
+<section class="footer__bottom">
+    2022 &copy; Борисов Дмитрий, аспирант
+</section>
+
+<!-- СКРИПТЫ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

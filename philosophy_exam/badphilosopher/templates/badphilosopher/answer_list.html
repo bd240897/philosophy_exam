@@ -1,0 +1,45 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+<!-- ДОП СТИЛИ -->
+
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/answer_list.css' %}">
+{% endblock %}
+
+<!--ОТВЕТЫ-->
+
+{% block answers %}
+
+<!-- СПИСОК ВОПРОСОВ -->
+
+<section class="answer_list">
+    <div class="container">
+        <h2 class="answer_list__header"> СПИСОК ВОПРОСОВ </h2>
+        <div class="answer_list__block">
+            {% for achieve in achieves_obj %}
+            <a href="{% url 'detailed_answer' achieve.number %}" class="answer_link nav-link active answer_list__link">
+                <div class="p-0 m-0" style="display: flex; align-items: start">
+                    <h4>{{achieve.number}}.</h4>
+                    <h4>{{achieve.name_question|safe}}</h4>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!--ПЕЧАТНЫЕ ОТВЕТЫ-->
+
+<section class="printed_answer">
+    <div class="container">
+        <div class="printed_answer__block">
+            <h3 class="printed_answer__header">Печтные ответы в виде шпор</h3>
+            <button class="btn btn-primary printed_answer__btn" type="button">Cкачать Печатные Ответы</button>
+            <a href="#" class="answer_link nav-link active printed_answer__link">Резервная ссылка на яндекс диск</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

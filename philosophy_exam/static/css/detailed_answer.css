@@ -1,17 +1,10 @@
 /*СТРАНИЦА ПОСТА*/
-.answer{
+.detailed_answer{
     background-color: #aaaaaa;
 }
 
-.answer_container{
-
-}
-
-.answer_header{
+.detailed_answer__header{
     text-align: center;
     font-weight: bold;
 }
 
-.answer_text{
-
-}

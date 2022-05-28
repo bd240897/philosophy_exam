@@ -1,0 +1,93 @@
+/*ОБО МНЕ*/
+
+.about_me{
+    background-image: url("../img/bg_bloe.jpg");
+    background-size: cover;
+    background-size: inherit;
+}
+
+/*<!--ЧТО УЖЕ ГОТОВО-->*/
+.alredy_done{
+    padding: 20px 0 20px 0;
+}
+
+.alredy_done__header{
+    text-align: center;
+}
+
+
+/*STYLE GENERAL INFORMATION*/
+
+/*.my_photo{*/
+/*    border: none;*/
+/*}*/
+
+/*.general_info{*/
+/*    width: 100%;*/
+/*}*/
+
+/*.general_info_content_inner{*/
+/*    width: 100%;*/
+/*    max-height: 100%;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    !*align-items: center;*!*/
+/*}*/
+
+/*.general_info_title{*/
+/*    font-size: 30px;*/
+/*    font-weight: 600;*/
+/*    color: #000000;*/
+/*    line-height: 1.2;*/
+/*    !*font-family: "Kaushan Script", cursive;*!*/
+/*}*/
+
+/*.general_info_list{*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.general_info_list li:not(:last-child)*/
+/*{*/
+/*    margin-bottom: 18px;*/
+/*}*/
+
+/*.general_info_icon*/
+/*{*/
+/*    width: 21px;*/
+/*    height: 21px;*/
+/*    margin-right: 24px;*/
+/*}*/
+
+/*.general_info_icon img*/
+/*{*/
+/*    max-width: 100%;*/
+/*}*/
+
+/*.general_info_text*/
+/*{*/
+/*    font-size: 20px;*/
+/*    color: #000000;*/
+/*    line-height: 1.2;*/
+/*    !*font-family: "Kaushan Script", cursive;*!*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.general_info_text span*/
+/*{*/
+/*    font-weight: initial;*/
+/*    padding-left: 5px;*/
+/*}*/
+
+/*.general_info_text a{*/
+/*    font-size: inherit;*/
+/*}*/
+
+/*.general_info__mail{*/
+/*    !*font-style: normal; !important;*!*/
+/*    font-family: 'Montserrat', sans-serif;*/
+/*    text-decoration: none;*/
+/*    padding-left: 5px;*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*    font-size: 18px;*/
+/*}*/

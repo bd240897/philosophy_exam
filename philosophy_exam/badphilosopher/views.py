@@ -7,14 +7,8 @@ from django.shortcuts import redirect
 from .models import Lections
 
 
-class IndexPage(View):
-    """ Главная страница ТЕСТ """
-
-    def get(self, request, *args, **kwargs):
-        return render(request, 'bedphilosopher/index.html')
-
-class MainPage(View):
-    """ Главная страница """
+class AnswerListView(View):
+    """ Список вопросов """
 
     def get(self, request, *args, **kwargs):
         # achieves = Lections.objects.order_by('number')
@@ -26,12 +20,17 @@ class MainPage(View):
         paginator = Paginator(achieves, 6)
         page_number = request.GET.get('page')
         achieves_obj  = paginator.get_page(page_number)
-        return render(request, 'bedphilosopher/main.html', context={'achieves_obj': achieves_obj })
+        return render(request, 'badphilosopher/answer_list.html', context={'achieves_obj': achieves_obj })
 
-class AnswerDetailView(View):
-    """ Страница поста"""
+class DetailedAnswerlView(View):
+    """ Страница одного ответа"""
 
     def get(self, request, slug, *args, **kwargs):
         answer = get_object_or_404(Lections, number=slug)
-        return render(request, 'bedphilosopher/answer.html', context={'answer': answer})
+        return render(request, 'badphilosopher/detailed_answer.html', context={'answer': answer})
 
+class MainPagelView(View):
+    """ Страница одного ответа"""
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'badphilosopher/main.html')

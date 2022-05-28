@@ -1,0 +1,31 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+<!--МОИ СТИЛИ-->
+
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/detailed_answer.css' %}">
+{% endblock %}
+
+
+<!--ОТВЕТЫ-->
+
+{% block answers %}
+
+<!--ОТВЕТЫ 1 БИЛЕТ-->
+
+<section class="detailed_answer">
+    <div class="container">
+        <h2 class="detailed_answer__header" style="border: 2px solid black;">
+            {{answer.number}}.
+            {{answer.name_question}}
+        </h2>
+        <div class="detailed_answer__text">
+            {{answer.answer|safe}}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
