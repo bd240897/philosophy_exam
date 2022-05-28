@@ -17,7 +17,7 @@ class AnswerListView(View):
         # achieves = get_object_or_404(Lections, number=1)
 
         achieves = Lections.objects.order_by('number').all()
-        paginator = Paginator(achieves, 6)
+        paginator = Paginator(achieves, 10)
         page_number = request.GET.get('page')
         achieves_obj  = paginator.get_page(page_number)
         return render(request, 'badphilosopher/answer_list.html', context={'achieves_obj': achieves_obj })

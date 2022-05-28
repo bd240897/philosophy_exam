@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     background-color: #aba9a9;
-    background-color: rgba(255,255,255,0.90);
+    background-color: rgba(255,255,255,1);
 }
 
 .detailed_answer:before{
@@ -33,3 +33,6 @@
     padding: 20px 0 20px 0;
 }
 
+.detailed_answer p{
+    line-height: 1;
+}

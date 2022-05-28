@@ -19,7 +19,7 @@
         <h2 class="answer_list__header"> СПИСОК ВОПРОСОВ </h2>
         <div class="answer_list__block">
             {% for achieve in achieves_obj %}
-            <a href="{% url 'detailed_answer' achieve.number %}" class="answer_link nav-link active answer_list__link">
+            <a href="{% url 'detailed_answer' achieve.number %}" class="answer_link nav-link answer_list__link" style="color: blue; font-weight: bold">
                 <div class="p-0 m-0" style="display: flex; align-items: start">
                     <h4>{{achieve.number}}.</h4>
                     <h4>{{achieve.name_question|safe}}</h4>
@@ -30,14 +30,63 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block pagination %}
+<div class="my_paginator">
+    <nav aria-label="Paginate me">
+      <ul class="pagination justify-content-center">
+
+        <!-- Предыдущий маркер -->
+
+        {% if achieves_obj.has_previous %}
+            <!-- Доступная ссылка на предыдущую страницу-->
+            <a class="page-link" href="?page={{ achieves_obj.previous_page_number }}" tabindex="-1">Предыдущая</a>
+        {% else %}
+            <!-- НЕдоступная ссылка на предыдущую страницу - disabled -->
+            <li class="page-item disabled">
+                <a class="page-link disabled" href="#" tabindex="-1">Предыдущая</a>
+            </li>
+        {% endif %}
+
+        <!-- page_range - диапазон страниц (1, 4) -->
+        {% for i in achieves_obj.paginator.page_range %}
+            <!-- number - текущая страница -->
+            {% if i == achieves_obj.number %}
+                <!-- Активная текущая страница - active-->
+                <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% else %}
+                <!-- НЕАктивная текущая страница-->
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Следующий маркер -->
+
+        {% if achieves_obj.has_next %}
+            <!-- Доступная ссылку на предыдущую страницу-->
+            <a class="page-link" href="?page={{ achieves_obj.next_page_number }}">Следующая</a>
+        {% else %}
+            <!-- НЕдоступная ссылку на предыдущую страницу - disabled -->
+            <li class="page-item disabled">
+                <a class="page-link" href="#">Следующая</a>
+            </li>
+        {% endif %}
+      </ul>
+    </nav>
+ </div>
+{% endblock %}
+
+{% block extrasection %}
+
 <!--ПЕЧАТНЫЕ ОТВЕТЫ-->
 
 <section class="printed_answer">
     <div class="container">
         <div class="printed_answer__block">
             <h3 class="printed_answer__header">Печтные ответы в виде шпор</h3>
-            <button class="btn btn-primary printed_answer__btn" type="button">Cкачать Печатные Ответы</button>
-            <a href="#" class="answer_link nav-link active printed_answer__link">Резервная ссылка на яндекс диск</a>
+            <a class="btn btn-primary btn-lg printed_answer__btn" type="button" href="/media/exam_lection_Antonyuk.pdf">Cкачать Печатные Ответы</a>
+            <a href="https://disk.yandex.ru/i/_TYmwLE4lYDwmg" class="answer_link nav-link active printed_answer__link">Резервная ссылка на яндекс диск</a>
         </div>
     </div>
 </section>
