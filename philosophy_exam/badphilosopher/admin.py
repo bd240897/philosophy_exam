@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import lections
+from .models import Lections
 
 class PostAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(lections, PostAdmin)
+admin.site.register(Lections, PostAdmin)

@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import redirect
-from .models import lections
+from .models import Lections
 
 
 class IndexPage(View):
@@ -17,12 +17,12 @@ class MainPage(View):
     """ Главная страница """
 
     def get(self, request, *args, **kwargs):
-        # achieves = lections.objects.order_by('number')
+        # achieves = Lections.objects.order_by('number')
         # return render(request, 'bedphilosopher/main.html')
         #
-        # achieves = get_object_or_404(lections, number=1)
+        # achieves = get_object_or_404(Lections, number=1)
 
-        achieves = lections.objects.order_by('number').all()
+        achieves = Lections.objects.order_by('number').all()
         paginator = Paginator(achieves, 6)
         page_number = request.GET.get('page')
         achieves_obj  = paginator.get_page(page_number)
@@ -32,6 +32,6 @@ class AnswerDetailView(View):
     """ Страница поста"""
 
     def get(self, request, slug, *args, **kwargs):
-        answer = get_object_or_404(lections, number=slug)
+        answer = get_object_or_404(Lections, number=slug)
         return render(request, 'bedphilosopher/answer.html', context={'answer': answer})
 

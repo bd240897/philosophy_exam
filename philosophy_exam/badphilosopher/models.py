@@ -5,7 +5,7 @@ from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
 
 # модель ответов Антонюка
-class lections(models.Model):
+class Lections(models.Model):
     number = models.IntegerField()
     name_question = RichTextUploadingField(blank=True, null=True)
     answer = RichTextUploadingField(blank=True, null=True)

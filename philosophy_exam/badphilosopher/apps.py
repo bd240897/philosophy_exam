@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BedphilosopherConfig(AppConfig):
+class BadphilosopherConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'bedphilosopher'
+    name = 'badphilosopher'

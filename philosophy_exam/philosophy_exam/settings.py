@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bedphilosopher',
+    'badphilosopher',
     # editor
     'ckeditor',
     'ckeditor_uploader'
@@ -152,7 +152,7 @@ CKEDITOR_CONFIGS = {
         'allowedContent': True,
         'toolbar_Full': [
         ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ],
-        ['Image', 'Flash', 'Table', 'HorizontalRule'],
+        ['Image', 'Flash', 'Table', 'HorizontalRule', 'FontSize'],
         ['TextColor', 'BGColor'],
         ['Smiley','sourcearea', 'SpecialChar'],
         [ 'Link', 'Unlink', 'Anchor' ],
