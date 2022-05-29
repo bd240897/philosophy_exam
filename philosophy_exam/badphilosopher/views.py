@@ -4,25 +4,23 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import redirect
-from .models import Lections
+from .models import Lections, Seminars
 
 
-class AnswerListView(View):
+class LectionsAnswerListView(View):
     """ Список вопросов """
 
     def get(self, request, *args, **kwargs):
         # achieves = Lections.objects.order_by('number')
         # return render(request, 'bedphilosopher/main.html')
-        #
         # achieves = get_object_or_404(Lections, number=1)
-
         achieves = Lections.objects.order_by('number').all()
         paginator = Paginator(achieves, 10)
         page_number = request.GET.get('page')
         achieves_obj  = paginator.get_page(page_number)
-        return render(request, 'badphilosopher/answer_list.html', context={'achieves_obj': achieves_obj })
+        return render(request, 'badphilosopher/lections_answer_list.html', context={'achieves_obj': achieves_obj})
 
-class DetailedAnswerlView(View):
+class LectionsDetailedAnswerlView(View):
     """ Страница одного ответа"""
 
     def get(self, request, slug, *args, **kwargs):
@@ -30,7 +28,30 @@ class DetailedAnswerlView(View):
         return render(request, 'badphilosopher/detailed_answer.html', context={'answer': answer})
 
 class MainPagelView(View):
-    """ Страница одного ответа"""
+    """Главная страница"""
 
     def get(self, request, *args, **kwargs):
         return render(request, 'badphilosopher/main.html')
+
+class SeminarsAnswerListView(View):
+    """ Семинары. Список ответов """
+
+    def get(self, request, *args, **kwargs):
+        achieves = Seminars.objects.order_by('number').all()
+        paginator = Paginator(achieves, 10)
+        page_number = request.GET.get('page')
+        achieves_obj = paginator.get_page(page_number)
+        return render(request, 'badphilosopher/seminars_answer_list.html', context={'achieves_obj': achieves_obj})
+
+class SeminarsDetailedAnswerlView(View):
+    """ Семинары. Страница одного ответа """
+
+    def get(self, request, slug, *args, **kwargs):
+        answer = get_object_or_404(Seminars, number=slug)
+        return render(request, 'badphilosopher/detailed_answer.html', context={'answer': answer})
+
+# class SeminarsAnswerListView(View):
+#     pass
+#
+# class SeminarsDetailedAnswerlView(View):
+#     pass

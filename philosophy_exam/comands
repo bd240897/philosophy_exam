@@ -1,4 +1,3 @@
 # команда для испорта данных их БД
 python manage.py dumpdata --exclude auth.permission --exclude contenttypes >db.json
-
-python -Xutf8 manage.py dumpdata --exclude auth.permission --exclude contenttypes > data.json
+python -Xutf8 manage.py dumpdata badphilosopher > 1.json

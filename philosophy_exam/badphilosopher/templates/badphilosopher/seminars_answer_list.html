@@ -19,7 +19,7 @@
         <h2 class="answer_list__header"> СПИСОК ВОПРОСОВ </h2>
         <div class="answer_list__block">
             {% for achieve in achieves_obj %}
-            <a href="{% url 'detailed_answer' achieve.number %}" class="answer_link nav-link answer_list__link" style="color: blue; font-weight: bold">
+            <a href="{% url 'seminars_detailed_answer' achieve.number %}" class="answer_link nav-link answer_list__link" style="color: blue; font-weight: bold">
                 <div class="p-0 m-0" style="display: flex; align-items: start">
                     <h4>{{achieve.number}}.</h4>
                     <h4>{{achieve.name_question|safe}}</h4>
@@ -81,14 +81,14 @@
 
 <!--ПЕЧАТНЫЕ ОТВЕТЫ-->
 
+
 <section class="printed_answer">
     <div class="container">
         <div class="printed_answer__block">
-            <h3 class="printed_answer__header">Печтные ответы в виде шпор</h3>
-            <a class="btn btn-primary btn-lg printed_answer__btn" type="button" href="/media/exam_lection_Antonyuk.pdf">Cкачать Печатные Ответы</a>
-            <a href="https://disk.yandex.ru/i/_TYmwLE4lYDwmg" class="answer_link nav-link active printed_answer__link">Резервная ссылка на яндекс диск</a>
+            <h3 class="printed_answer__header">Печтные ответы Фурсов</h3>
+            <a class="btn btn-primary btn-lg printed_answer__btn" type="button" href="/media/exam_seminars_Fursov.pdf">Cкачать Печатные Ответы</a>
+            <a href="https://disk.yandex.ru/i/vqvcGL9SAlgbbA" class="answer_link nav-link active printed_answer__link">Резервная ссылка на яндекс диск</a>
         </div>
     </div>
 </section>
-
 {% endblock %}

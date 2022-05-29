@@ -14,3 +14,14 @@ class Lections(models.Model):
     def __str__(self):
         # для отображения в админке
         return str(self.number)
+
+# модель ответов Фурсова
+class Seminars(models.Model):
+    number = models.IntegerField(unique=True)
+    name_question = models.TextField(blank=True, null=True)
+    answer = RichTextUploadingField(blank=True, null=True)
+    visible = models.BooleanField(blank=True, null=True)
+
+    def __str__(self):
+        # для отображения в админке
+        return str(self.number)
