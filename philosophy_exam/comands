@@ -1,3 +1,107 @@
 # команда для испорта данных их БД
 python manage.py dumpdata --exclude auth.permission --exclude contenttypes >db.json
 python -Xutf8 manage.py dumpdata badphilosopher > 1.json
+
+
+// Django beget
+part 25
+https://proproprogs.ru/django/nachinaem-razvertyvanie-django-sayta-na-hostinge
+part 26
+https://proproprogs.ru/django/zavershaem-razvertyvanie-django-sayta-na-hostinge
+
+// доступ к docker
+ssh localhost -p222
+
+// установка доп библиотек для python 3.8
+mkdir -p ~/.beget/tmp
+cd ~/.beget/tmp/
+wget ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
+tar -xf libffi-3.2.1.tar.gz && cd libffi-3.2.1
+./configure --prefix $HOME/.local LDFLAGS="-L/usr/local/lib"
+make -j33 && make install
+cd ~
+mkdir -p ~/.local/include
+cp x86_64-unknown-linux-gnu/include/ffi.h ~/.local/include/
+cp x86_64-unknown-linux-gnu/include/ffitarget.h ~/.local/include/
+cd ~/.beget/tmp
+
+// установка python 3.8
+wget https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz
+tar -xf Python-3.8.3.tgz && cd Python-3.8.3
+./cnfigure --prefix=$HOME/.local LDFLAGS="-L/usr/local/lib"
+make -j33 && make install
+~/.local/bin/python3.8 –V
+
+// создание django
+~/.local/bin/pip3.8 install virtualenv
+~/.local/bin/python3.8 -m virtualenv djangoenv
+source djangoenv/bin/activate
+which python
+pip install django==3.1.5
+django-admin.py startproject coolsite
+mkdir tmp; touch tmp/restart.txt
+pip install -r requirements.txt
+pip install django mysqlclient
+python manage.py collectstatic
+python manage.py migrate
+deactivate
+// содержание моих файлов конфигурации
+
+// .htaccess
+PassengerEnabled On
+PassengerPython /home/b/bd2408eb/.local/bin/python3.8
+
+// passenger_wsgi.py
+# -*- coding: utf-8 -*-
+import os, sys
+sys.path.insert(0, '/home/b/bd2408eb/bad-philosopher.ru/philosophy_exam')
+sys.path.insert(1, '/home/b/bd2408eb/bad-philosopher.ru/env/lib/python3.8/site-packages')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'philosophy_exam.settings'
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
+// настройка БД
+DATABASES = {
+    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sbalak_django',
+        'USER': 'sbalak_django',
+        'PASSWORD': 'hS&Elv8S',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+// настрйока урлов для ngingx
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+else:
+    urlpatterns += [
+        url(f'^{settings.MEDIA_URL.lstrip("/")}(?P<path>.*)$',
+            mediaserve, {'document_root': settings.MEDIA_ROOT}),
+        url(f'^{settings.STATIC_URL.lstrip("/")}(?P<path>.*)$',
+            mediaserve, {'document_root': settings.STATIC_ROOT}),
+    ]
+
+// ОШИБКИ
+- при git clone он создате папку philosophy_exam/philosophy_exam/manage.py, поэтому нужно убрать 1 папрку philosophy_exam
+- после любых изменений делаем touch tmp/restart.txt
+- делать миграции для отдельного приложения pythom manage.py makemigrations badphilosopher
+- не забывать делать миграцию при первом старте - а то не будет супер пользователя
+- перенос записией из бд делать только для отдельного приложения а не для всей БД (записи в формате utf8)
+python -Xutf8 manage.py dumpdata badphilosopher > 1.json
+- зугрузка записей на сервере командой
+- при подулючении новой БД сразу сделат ьмигарцию
+- СУПЕРПОЛЬЗОВАТЕЛЬ созадется только в режиме дебага DEBUG=Trye
+- в pip install должна быть зависимость sqlparse==0.4.2 (для БД, версия неважна)
+python manage.py loaddata db.json
+- не забывать войти в source env/bin/activate при устоновке чего в pip
