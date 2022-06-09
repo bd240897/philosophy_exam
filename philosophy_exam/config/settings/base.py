@@ -32,10 +32,13 @@ if READ_DOT_ENV_FILE:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DJANGO_DEBUG', False)
+DEBUG = env.bool('DJANGO_DEBUG', default=True)
 
 # Allowed host
-ALLOWED_HOSTS = ['*', 'bad-philosopher.ru', 'www.bad-philosopher.ru']
+ALLOWED_HOSTS = ['*']
+
+# секретный ключ - ТУТ НЕ НУЖЕН
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='django-insecure-7r3vs91=fa)v8yh4g7h=l#0e))om%8n!n4i*^iv%=o=88w%-dr')
 
 # Application definition
 INSTALLED_APPS = [
@@ -61,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'philosophy_exam.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -79,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'philosophy_exam.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 DATABASES = {
