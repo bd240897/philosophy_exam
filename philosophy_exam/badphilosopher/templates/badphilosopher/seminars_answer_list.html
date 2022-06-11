@@ -19,7 +19,7 @@
         <h2 class="answer_list__header"> СПИСОК ВОПРОСОВ </h2>
         <div class="answer_list__block">
             {% for achieve in achieves_obj %}
-            <a href="{% url 'seminars_detailed_answer' achieve.number %}" class="answer_link nav-link answer_list__link" style="color: blue; font-weight: bold">
+            <a href="{{ achieve.get_absolute_url }}" class="answer_link nav-link answer_list__link" style="color: blue; font-weight: bold">
                 <div class="p-0 m-0" style="display: flex; align-items: start">
                     <h4>{{achieve.number}}.</h4>
                     <h4>{{achieve.name_question|safe}}</h4>

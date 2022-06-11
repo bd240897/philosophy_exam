@@ -12,8 +12,12 @@ class PostAdmin(admin.ModelAdmin):
 class LectionsPostAdmin(admin.ModelAdmin):
     list_display = ["number", "name_question", "visible"]
     ordering = ('number',)
+    save_as = True
+    save_on_top = True
 
 @admin.register(Seminars)
 class SeminarsPostAdmin(admin.ModelAdmin):
     list_display = ["number", "name_question", "visible"]
     ordering = ('number',)
+    save_as = True
+    save_on_top = True

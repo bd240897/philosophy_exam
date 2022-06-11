@@ -1,6 +1,6 @@
 from django.db import models
-from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -15,6 +15,9 @@ class Lections(models.Model):
         # для отображения в админке
         return str(self.number)
 
+    def get_absolute_url(self):
+        return reverse("lections_detailed_answer", kwargs={"slug": self.number})
+
 # модель ответов Фурсова
 class Seminars(models.Model):
     number = models.IntegerField(unique=True)
@@ -25,3 +28,6 @@ class Seminars(models.Model):
     def __str__(self):
         # для отображения в админке
         return str(self.number)
+
+    def get_absolute_url(self):
+        return reverse("seminars_detailed_answer", kwargs={"slug": self.number})
