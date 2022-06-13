@@ -1,0 +1,18 @@
+/* ФОРМА ВВОДА */
+
+
+
+/* МЕДИА ЗАПРОСЫ */
+@media (max-width: 575px) {  /* если меньше 575*/
+  .contact__form__purpose span{
+    display: none;
+}
+}
+
+@media screen and (max-width: 990px) { /* если меньше 1200*/
+}
+@media (max-width: 990px) { /* если меньше 990*/
+}
+@media (max-width: 770px) { /* если меньше 770*/
+
+}

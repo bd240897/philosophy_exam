@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'badphilosopher',
     # editor
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'contact'
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,67 @@
+<!--ОБЩИЙ ШАБЛОН ДЛЯ ОТВЕТА-->
+
+{% extends 'badphilosopher/base.html' %}
+
+{% load static %}
+
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/comment_form.css' %}">
+{% endblock %}
+
+{% block answers %}
+<section class="contact">
+    <div class="contact__container container pb-3">
+        <div class="contact__intro">
+            <h2 class="contact__intro__header text-center pt-3"> Страница для отзывов и предложений </h2>
+            <p class="contact__intro__text">
+                На данной страницу вы можете оставить отзыв о проделанной работе.
+                Также если вы вдруг нашли ошибку в тексте, напишите мне об этом с помощью формы ниже.
+            </p>
+        </div>
+
+        <div class="contact__form">
+            <h2 class="contact__form__header text-center"> Напишите свой отзыв здесь: </h2>
+
+            <form action="{% url 'comment_form' %}" method="post">
+                <div class="row g-3">
+
+                    <div class="contact__form__purpose col-12">
+                        <div class="input-group">
+                          <span class="input-group-text" id="basic-addon1" style="">Тип сообщения:</span>
+                          {{ form.purpose }}
+                        </div>
+                    </div>
+
+                    <div class="contact__form__name col-md-6">
+                        <div class="form-floating">
+                            {{ form.name }}
+                            <label for="floatingEmail">Вашe Имя</label>
+                        </div>
+                    </div>
+
+                    <div class="contact__form__email col-md-6">
+                        <div class="form-floating">
+                            {{ form.email }}
+                            <label for="floatingName">Ваша почта</label>
+                        </div>
+                    </div>
+
+                    <div class="contact__form__message col-12">
+                        <div class="form-floating">
+                            {{ form.message }}
+                            <label for="floatingText">Напишите сообщение</label>
+                        </div>
+                    </div>
+
+                    {% csrf_token %}
+                    <div class="contact__form__btn col-12 d-grid gap-2">
+                        <button type="submit" class="btn btn-primary" value="Submit">Отправить</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
