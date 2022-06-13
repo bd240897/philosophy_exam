@@ -10,17 +10,31 @@
 
 {% block answers %}
 <section class="contact">
-    <div class="contact__container container pb-3">
+    <div class="contact__container container pb-3 pt-3">
         <div class="contact__intro">
-            <h2 class="contact__intro__header text-center pt-3"> Страница для отзывов и предложений </h2>
+
+            <h2 class="contact__intro__header text-center pt-2 pb-2"> Страница для отзывов и предложений </h2>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    На данной странице вы можете оставить отзыв о моей работе.
+                </li>
+                <li class="list-group-item">
+                    Если вы нашли ошибку в тексте или у вас есть предложения по улучшению сайта, пожалуйста
+                    напишите мне об этом с помощью формы ниже.
+                </li>
+                <li class="list-group-item">
+                    Заранее спасибо!
+                </li>
+            </ul>
+
             <p class="contact__intro__text">
-                На данной страницу вы можете оставить отзыв о проделанной работе.
-                Также если вы вдруг нашли ошибку в тексте, напишите мне об этом с помощью формы ниже.
             </p>
+
         </div>
 
         <div class="contact__form">
-            <h2 class="contact__form__header text-center"> Напишите свой отзыв здесь: </h2>
+            <h2 class="contact__form__header text-center pt-2 pb-2"> Напишите свой отзыв здесь: </h2>
 
             <form action="{% url 'comment_form' %}" method="post">
                 <div class="row g-3">

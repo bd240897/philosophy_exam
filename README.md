@@ -17,7 +17,7 @@
 
 ## Используемые материалы для написания  
 
-##### 1) [Rурс на stepik](https://stepik.org/course/82067/syllabus)
+##### 1) [Курс на stepik](https://stepik.org/course/82067/syllabus)
 
 ##### 2) Книга "Django 2 в примерах"
 
