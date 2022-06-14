@@ -11,12 +11,14 @@
 {% endblock %}
 
 {% block answers %}
-  <section class="success_from">
-    <div class="success_from__container container text-center pt-5">
-      <h1 class="success_from__text slider__text_big">Спасибо за отзыв!</h1>
-      <div class="success_from__link">
-          <a href="{% url 'main_page' %}" class="" >Вернуться на главную</a>
-      </div>
-    </div>
-  </section>
+    <!-- УСПЕШНАЯ ОТПРАВКА -->
+
+    <section class="success_from">
+        <div class="success_from__container container text-center pt-5">
+            <h1 class="success_from__text slider__text_big">Спасибо за отзыв!</h1>
+            <div class="success_from__link">
+                <a href="{% url 'main_page' %}" class="" >Вернуться на главную</a>
+            </div>
+        </div>
+    </section>
 {% endblock %}
