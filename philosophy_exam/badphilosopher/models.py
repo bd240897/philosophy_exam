@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
 
+
 # модель ответов Антонюка
 class Lections(models.Model):
     number = models.IntegerField(unique=True)
@@ -17,6 +18,7 @@ class Lections(models.Model):
 
     def get_absolute_url(self):
         return reverse("lections_detailed_answer", kwargs={"slug": self.number})
+
 
 # модель ответов Фурсова
 class Seminars(models.Model):

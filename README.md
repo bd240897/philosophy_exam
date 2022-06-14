@@ -25,16 +25,21 @@
 - img to social media
 - description of site (header)
 - .filter published==on 
-- footer to template (done)
-- correct bd slug instead id in Post (done)
 - learn bd command postgres
-- delete style from suceess (done)
-- fixed css in base (done)
 - add comment to post
-- fixed url to int instead slug (done)
 - rename bd name for app badphilosopher
 - add to admin inlines отзывы чтоб при выводе поста показывался отзыв 
 - вступительные
+  - **Alredy done**
+    - footer to template (done)
+    - fixed url to int instead slug (done)
+    - fixed css in base (done)
+    - delete style from suceess (done)
+    - correct bd slug instead id in Post (done)
+
+
+
+
 
 
 
