@@ -1,6 +1,7 @@
 from django import forms
-
 from .models import Comment
+from captcha.fields import CaptchaField
+
 
 param_name = {"type": "text",
               "class": "form-control",
@@ -26,6 +27,7 @@ param_purpose = {"class": "form-select",
 
 class CommentForm(forms.ModelForm):
     # purpose = forms.ModelChoiceField(choices=TITLE_CHOICES, widget=forms.Select(attrs=param_purpose))
+    captcha = CaptchaField(label='Are you an human?')
 
     class Meta:
         model = Comment

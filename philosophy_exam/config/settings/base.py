@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     # editor
     'ckeditor',
     'ckeditor_uploader',
+    'captcha',
+    # app
     'contact'
 ]
 
@@ -182,4 +184,10 @@ CKEDITOR_CONFIGS = {
 }
 
 ###################################
-
+# CAPTHCA
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+CAPTCHA_IMAGE_SIZE = (150, 50)
+CAPTCHA_FONT_SIZE = (28)
+CAPTCHA_BACKGROUND_COLOR = '#cccccc'
+CAPTCHA_FOREGROUND_COLOR = '#001100'
+CAPTCHA_LENGTH = 6
