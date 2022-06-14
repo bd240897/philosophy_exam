@@ -14,20 +14,17 @@
 <!--ОТВЕТЫ-->
 
 {% block answers %}
+    <!--ОТВЕТЫ 1 БИЛЕТ-->
 
-<!--ОТВЕТЫ 1 БИЛЕТ-->
-
-<section class="detailed_answer">
-    <div class="container">
-        <h2 class="detailed_answer__header" style="border: 2px solid black;">
-            {{answer.number}}.
-            {{answer.name_question}}
-        </h2>
-        <div class="detailed_answer__text">
-            {{answer.answer|safe}}
+    <section class="detailed_answer">
+        <div class="container">
+            <h2 class="detailed_answer__header" style="border: 2px solid black;">
+                {{answer.number}}.
+                {{answer.name_question}}
+            </h2>
+            <div class="detailed_answer__text">
+                {{answer.answer|safe}}
+            </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
 {% endblock %}

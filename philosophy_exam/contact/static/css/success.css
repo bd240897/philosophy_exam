@@ -1,0 +1,18 @@
+/*СТРАНИЦА УСПЕШНОЙ ОТПРАВКИ*/
+
+.success_from__text{
+    z-index: 10;
+    display: block;
+    font-family: Montserrat, serif;
+    font-size: 80px;
+    font-weight: bold;
+    color: black;
+}
+  .success_from__link{
+    z-index: 10;
+    display: block;
+    font-family: Montserrat, serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}

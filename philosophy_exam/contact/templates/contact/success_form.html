@@ -4,34 +4,19 @@
 
 {% load static %}
 
+<!-- ДОП СТИЛИ -->
+
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/success.css' %}">
+{% endblock %}
+
 {% block answers %}
-<style>
-  .success_from__text{
-    z-index: 10;
-    display: block;
-    font-family: Montserrat, serif;
-    font-size: 80px;
-    font-weight: bold;
-    color: black;
-}
-  .success_from__link{
-    z-index: 10;
-    display: block;
-    font-family: Montserrat, serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-}
-</style>
-
-
-<section class="success_from">
-  <div class="success_from__container container text-center pt-5">
-    <h1 class="success_from__text slider__text_big">Спасибо за отзыв!</h1>
-    <div class="success_from__link">
-        <a href="{% url 'main_page' %}" class="" >Вернуться на главную</a>
+  <section class="success_from">
+    <div class="success_from__container container text-center pt-5">
+      <h1 class="success_from__text slider__text_big">Спасибо за отзыв!</h1>
+      <div class="success_from__link">
+          <a href="{% url 'main_page' %}" class="" >Вернуться на главную</a>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 {% endblock %}

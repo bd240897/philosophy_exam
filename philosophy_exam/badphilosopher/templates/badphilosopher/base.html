@@ -12,7 +12,6 @@
     <!--Гугл шритфты-->
     <link href='//fonts.googleapis.com/css?family=Lato:400,700|Kaushan+Script|Montserrat' rel='stylesheet' type='text/css'>
     <link href="//fonts.googleapis.com/css2?family=Source+Serif+4:wght@500&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <!-- доп стили для других страниц-->
     {% block head_block %}{% endblock %}
@@ -27,18 +26,13 @@
 
 <!--СЛАЙДЕР-->
 
-<section class="slider">
-    <img class="slider__img" src="{% static 'img/antonuk_photo_2.jpg' %}" alt="HEADER">
-    <h2 class="slider__text_big"> Ответы на Философию Науки </h2>
-    <p class="slider__text_small"> Сделал Борисов Дмитрий </p>
-</section>
-
+{% include './block/head_slider.html' %}
 
 <!-- СПИСОК ВОПРОСОВ -->
 
 {% block answers %} {% endblock %}
 
-<!--    ПАГИНАЦИЯ -->
+<!-- ПАГИНАЦИЯ -->
 
 {% block pagination %}{% endblock %}
 
