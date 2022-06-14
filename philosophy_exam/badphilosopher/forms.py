@@ -1,5 +1,7 @@
 from django import forms
-from .models import Comment
+from django.core.exceptions import ValidationError
+
+from .models import CommentLection
 from captcha.fields import CaptchaField
 
 
@@ -21,20 +23,18 @@ parm_msg = {"type": "text",
             "placeholder": "Напишите Ваше сообщение тут",
             "style": "height: 200px", }
 
-param_purpose = {"class": "form-select",
-                 "label": "form-control",
-                 "Выбор опций": "Выбор опций",}
+class CommentLectionForm(forms.ModelForm):
+    # captcha = CaptchaField(label='Are you an human?')
 
-class CommentForm(forms.ModelForm):
-    # http://sharelink.ru/blog/django-simple-captcha-ustanovka-i-nastrojka/
-    captcha = CaptchaField(label='Are you an human?')
+    # def clean(self):
+    #     print("You have forgotten about Fred!")
+    #     raise ValidationError("You have forgotten about Fred!")
+
 
     class Meta:
-        model = Comment
-        exclude = ['create_at']
+        model = CommentLection
+        exclude = ['created_at', 'post']
         widgets = {
             'name': forms.TextInput(attrs=param_name),
-            'email': forms.EmailInput(attrs=param_email),
-            'purpose': forms.Select(attrs=param_purpose),
-            'message': forms.Textarea(attrs=parm_msg)
+            'text': forms.Textarea(attrs=parm_msg)
         }

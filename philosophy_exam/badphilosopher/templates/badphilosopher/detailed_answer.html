@@ -30,86 +30,92 @@
 
     <!-- КОММЕНТАРИИ К СТАТЬЕ-->
 
-    <section class="comments">
-        <h1 class="text-center">Комментарии к статье</h1>
+    <section class="commentLection">
         <div class="container">
-            {% for comment in answer.commentlection_set.all %}
-                <div style="border: 2px solid black;">
-                    <h5>Автор</h5>
-                    <p>{{ comment.author}}</p>
-                    <h5>Текст комментария</h5>
-                    <p>{{ comment.text}}</p>
-                    <h5>Дата</h5>
-                    <p>14.06.22</p>
+
+            <div class="commentLection__card card">
+                <div class="card-body border border-secondary border-1">
+                    <form action="{% url 'create_comment_lection' answer.number %}" method="post">
+                        <h1 class="text-center"> Написать комментарий </h1>
+                        <div class="row g-2">
+                            <div class="col">
+                                <div class="form-floating  mb-2">
+<!--                                    <input type="text" class="form-control" id="floatingName" placeholder="Ваше имя">-->
+                                    {{ form.name }}
+                                    <label for="floatingName">Ваше имя</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-2">
+                                    <input type="email" class="form-control" id="floatingEmal" placeholder="Ваша почта" disabled>
+                                    <label for="floatingEmal">Ваша почта</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-2">
+<!--                            <textarea class="form-control" placeholder="Комментарий" id="floatingText" style="height: 100px"></textarea>-->
+                            {{ form.text }}
+                            <label for="floatingText">Комментарий</label>
+                        </div>
+
+                        <div class="mb-2">
+                            <div class="mb-2">
+                                <span class="d-block p-2 text-center" id="" style="background: #e9ecef;font-weight: bold; ">Пожалуйста заполните капчу</span>
+                                {{ form.captcha.errors }}
+                            </div>
+                            <div class="d-flex flex-row">
+                                {{ form.captcha }}
+                                <button class='captcha-refresh btn' style="background: #e9ecef">Refresh</button>
+                            </div>
+                        </div>
+<!--                        {{ form }}-->
+<!--                        {{ form.errors }}-->
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary" type="submit">Отправить</button>
+                        </div>
+                    </form>
                 </div>
+            </div>
+
+
+            <h1 class="commentLection__header text-center pt-2 pb-2">Комментарии к статье</h1>
+            {% for comment in answer.commentlection_set.all|dictsortreversed:"created_at"  %}
+            <div class="commentLection__card card pt-2 pb-2">
+                <div class="card-body p-4">
+                    <div class="d-flex flex-start">
+
+                        <img class="commentLection__card__img rounded-circle shadow-1-strong me-3 border border-primary"
+                             src="{% static 'img/man.png' %}" alt="avatar" width="65"
+                             height="65"/>
+
+                        <div class="commentLection__card__body flex-grow-1 flex-shrink-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="commentLection__card__author mb-1">
+                                    {{ comment.name}} <span class="small">- {{ comment.created_at }}</span>
+                                </p>
+                                <!--                                <a href="#!"><i class="commentLection__card__link fas fa-reply fa-xs"></i><span class="small"> reply</span></a>-->
+                            </div>
+                            <p class="commentLection__card__text small mb-0">
+                                {{ comment.text}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             {% endfor %}
+
         </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="{% static 'js/comment_form.js' %}"></script>
+
     </section>
 
-<section class="gradient-custom">
-  <div class="container my-5 py-5">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xl-8">
-        <div class="card">
-          <div class="card-body p-4">
-            <h4 class="text-center mb-4 pb-2">Комментарии к статье</h4>
-
-            <div class="row">
-              <div class="col">
-                <div class="d-flex flex-start">
-
-                  <img class="rounded-circle shadow-1-strong me-3"
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="avatar" width="65"
-                    height="65" />
-                  <div class="flex-grow-1 flex-shrink-1">
-
-                    <div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <p class="mb-1">
-                          Maria Smantha <span class="small">- 2 hours ago</span>
-                        </p>
-                        <a href="#!"><i class="fas fa-reply fa-xs"></i><span class="small"> reply</span></a>
-                      </div>
-                      <p class="small mb-0">
-                        It is a long established fact that a reader will be distracted by
-                        the readable content of a page.
-                      </p>
-                    </div>
-
-                    <div class="d-flex flex-start mt-4">
-
-                      <a class="me-3" href="#">
-                        <img class="rounded-circle shadow-1-strong"
-                          src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp" alt="avatar"
-                          width="65" height="65" />
-                      </a>
-
-                      <div class="flex-grow-1 flex-shrink-1">
-                        <div>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <p class="mb-1">
-                              Simona Disa <span class="small">- 3 hours ago</span>
-                            </p>
-                          </div>
-                          <p class="small mb-0">
-                            letters, as opposed to using 'Content here, content here',
-                            making it look like readable English.
-                          </p>
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </div>
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
 {% endblock %}

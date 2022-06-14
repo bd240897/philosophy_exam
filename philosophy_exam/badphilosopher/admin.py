@@ -25,7 +25,7 @@ class LectionsPostAdmin(admin.ModelAdmin):
 
 @admin.register(CommentLection)
 class SeminarsPostAdmin(admin.ModelAdmin):
-    list_display = ["author", "text", "post"]
+    list_display = ["name", "text", "post"]
     # ordering = ('number',)
     save_as = True
     save_on_top = True
