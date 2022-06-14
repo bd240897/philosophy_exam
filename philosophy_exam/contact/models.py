@@ -12,7 +12,7 @@ class Comment(models.Model):
     email = models.CharField(max_length=100)
     message = models.TextField(max_length=500)
     create_at = models.DateTimeField(default=timezone.now)
-    purpose = models.CharField(max_length=3, choices=TITLE_CHOICES, default='One')
+    purpose = models.CharField(max_length=3, choices=TITLE_CHOICES, default='1')
 
     def __str__(self):
         return self.name

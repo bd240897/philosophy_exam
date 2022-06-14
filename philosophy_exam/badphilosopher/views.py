@@ -11,9 +11,6 @@ class LectionsAnswerListView(View):
     """ Список вопросов """
 
     def get(self, request, *args, **kwargs):
-        # achieves = Lections.objects.order_by('number')
-        # return render(request, 'bedphilosopher/main.html')
-        # achieves = get_object_or_404(Lections, number=1)
         achieves = Lections.objects.order_by('number').all()
         paginator = Paginator(achieves, 10)
         page_number = request.GET.get('page')
@@ -49,9 +46,3 @@ class SeminarsDetailedAnswerlView(View):
     def get(self, request, slug, *args, **kwargs):
         answer = get_object_or_404(Seminars, number=slug)
         return render(request, 'badphilosopher/detailed_answer.html', context={'answer': answer})
-
-# class SeminarsAnswerListView(View):
-#     pass
-#
-# class SeminarsDetailedAnswerlView(View):
-#     pass

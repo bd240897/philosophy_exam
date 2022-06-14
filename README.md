@@ -21,6 +21,23 @@
 
 ##### 2) Книга "Django 2 в примерах"
 
+**Need to fix:**
+- img to social media
+- description of site (header)
+- .filter published==on 
+- footer to template
+- correct bd slug instead id in Post
+- learn bd command postgres
+- delete style from suceess
+- fixed css in base
+- add comment to post
+- fixed url to int instead slug
+- rename bd name for app badphilosopher
+- add to admin inlines отзывы чтоб при выводе поста показывался отзыв 
+- вступительные
+
+
+
 
 
 

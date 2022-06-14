@@ -1,0 +1,103 @@
+/*БАЗОВЫЕ НАСТРОЙКИ>*/
+
+* {
+    position: relative;
+    box-sizing: border-box;
+    font-weight: initial;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 16px;
+    line-height: 1.8;
+    color: #000000;
+
+    /* для прижатия футера*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ХЕДЕР */
+
+.slider{
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slider__img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    filter: brightness(40%);
+
+}
+
+/*псевдо элемент фон за картинкой*/
+.slider__img:after {
+     content: "";
+     position: absolute;
+     left: 0;
+     top: 0;
+     z-index: -1;
+     width: 100%;
+     height: 100%;
+     background: red;
+ }
+
+.slider__text_big{
+    z-index: 10;
+    display: block;
+    font-family: Montserrat, serif;
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+}
+
+.slider__text_small{
+    z-index: 10;
+    display: block;
+    font-family: Montserrat, serif;
+    font-size: 30px;
+    color: white;
+}
+
+/*ПОДВАЛ*/
+
+.footer__bottom{
+    margin-top: auto;
+    text-align: center;
+    font-family: Montserrat, serif;
+    font-size: 14px;
+    background-color: #2b3134;
+    color: white;
+}
+
+/* МЕДИА ЗАПРОСЫ */
+@media (max-width: 575px) {  /* если меньше 575*/
+    .slider__text_big{
+        font-size: 40px;
+    }
+
+    .slider__text_small{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 990px) { /* если меньше 1200*/
+}
+@media (max-width: 990px) { /* если меньше 990*/
+}
+@media (max-width: 770px) { /* если меньше 770*/
+
+}
