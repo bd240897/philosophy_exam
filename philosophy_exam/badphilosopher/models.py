@@ -46,6 +46,17 @@ class CommentLection(models.Model):
         # для отображения в админке
         return self.name
 
+class CommentSeminar(models.Model):
+    name = models.CharField(verbose_name="Автор", max_length=100)
+    text = models.TextField(verbose_name="Текст", max_length=300)
+    post = models.ForeignKey('Seminars', verbose_name="Лекция", on_delete=models.CASCADE)
+    parent = models.ForeignKey('self', verbose_name="Родитель", on_delete=models.SET_NULL, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        # для отображения в админке
+        return self.name
+
     # def choice_set_sorted(self):
     #     # Can set .order_by('-votes') to reverse order
     #     return self.choice_set.all().order_by('votes')

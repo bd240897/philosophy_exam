@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from .models import CommentLection
+from .models import CommentLection, CommentSeminar
 from captcha.fields import CaptchaField
 
 
@@ -33,6 +33,17 @@ class CommentLectionForm(forms.ModelForm):
 
     class Meta:
         model = CommentLection
+        exclude = ['created_at', 'post']
+        widgets = {
+            'name': forms.TextInput(attrs=param_name),
+            'text': forms.Textarea(attrs=parm_msg)
+        }
+
+class CommentSeminarForm(forms.ModelForm):
+    # captcha = CaptchaField(label='Are you an human?')
+
+    class Meta:
+        model = CommentSeminar
         exclude = ['created_at', 'post']
         widgets = {
             'name': forms.TextInput(attrs=param_name),

@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
 
-from .forms import CommentLectionForm
-from .models import Lections, Seminars, CommentLection
+from .forms import CommentLectionForm, CommentSeminarForm
+from .models import Lections, Seminars, CommentLection, CommentSeminar
 
 
 class LectionsAnswerListView(ListView):
@@ -22,6 +22,7 @@ class LectionsDetailedAnswerlView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        print(context.get('massage'))
         context['form'] = CommentLectionForm()
         return context
 
@@ -80,3 +81,18 @@ class CreateCommentLection(CreateView):
     def get_success_url(self):
         return self.object.post.get_absolute_url()
 
+class CreateCommentSeminar(CreateView):
+    model = CommentSeminar
+    form_class = CommentSeminarForm
+    success_url = '/'
+    template_name = 'badphilosopher/detailed_answer.html'
+
+    def form_valid(self, form):
+        current_post = self.kwargs.get('current_post')
+        post = Seminars.objects.get(number=current_post)
+        form.instance.post = post
+        self.object = form.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return self.object.post.get_absolute_url()
