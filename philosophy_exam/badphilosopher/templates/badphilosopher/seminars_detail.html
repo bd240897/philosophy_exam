@@ -1,0 +1,121 @@
+<!--ОБЩИЙ ШАБЛОН ДЛЯ ОТВЕТА-->
+
+{% extends './base.html' %}
+
+{% load static %}
+
+<!--МОИ СТИЛИ-->
+
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/detailed_answer.css' %}">
+{% endblock %}
+
+
+<!--ОТВЕТЫ-->
+
+{% block answers %}
+    <!--ОТВЕТЫ 1 БИЛЕТ-->
+
+    <section class="detailed_answer">
+        <div class="container">
+            <h2 class="detailed_answer__header" style="border: 2px solid black;">
+                {{answer.number}}.
+                {{answer.name_question}}
+            </h2>
+            <div class="detailed_answer__text">
+                {{answer.answer|safe}}
+            </div>
+        </div>
+    </section>
+
+    <!-- КОММЕНТАРИИ К СТАТЬЕ-->
+
+    <section class="commentLection">
+        <div class="container">
+
+            <div class="commentLection__card card">
+                <div class="card-body border border-secondary border-1">
+                    <form action="{% url 'create_comment_seminar' answer.number %}" method="post">
+                        <h1 class="text-center"> Написать комментарий </h1>
+                        <div class="row g-2">
+                            <div class="col">
+                                <div class="form-floating  mb-2">
+<!--                                    <input type="text" class="form-control" id="floatingName" placeholder="Ваше имя">-->
+                                    {{ form.name }}
+                                    <label for="floatingName">Ваше имя</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-2">
+                                    <input type="email" class="form-control" id="floatingEmal" placeholder="Ваша почта" disabled>
+                                    <label for="floatingEmal">Ваша почта</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-2">
+<!--                            <textarea class="form-control" placeholder="Комментарий" id="floatingText" style="height: 100px"></textarea>-->
+                            {{ form.text }}
+                            <label for="floatingText">Комментарий</label>
+                        </div>
+
+                        <div class="mb-2">
+                            <div class="mb-2">
+                                <span class="d-block p-2 text-center" id="" style="background: #e9ecef;font-weight: bold; ">Пожалуйста заполните капчу</span>
+                                {{ form.captcha.errors }}
+                            </div>
+                            <div class="d-flex flex-row">
+                                {{ form.captcha }}
+                                <button class='captcha-refresh btn' style="background: #e9ecef">Refresh</button>
+                            </div>
+                        </div>
+<!--                        {{ form }}-->
+<!--                        {{ form.errors }}-->
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary" type="submit">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <h1 class="commentLection__header text-center pt-2 pb-2">Комментарии к статье</h1>
+            {% for comment in answer.commentseminar_set.all|dictsortreversed:"created_at"  %}
+            <div class="commentLection__card card pt-2 pb-2">
+                <div class="card-body p-4">
+                    <div class="d-flex flex-start">
+
+                        <img class="commentLection__card__img rounded-circle shadow-1-strong me-3 border border-primary"
+                             src="{% static 'img/man.png' %}" alt="avatar" width="65"
+                             height="65"/>
+
+                        <div class="commentLection__card__body flex-grow-1 flex-shrink-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="commentLection__card__author mb-1">
+                                    {{ comment.name}} <span class="small">- {{ comment.created_at }}</span>
+                                </p>
+                                <!--                                <a href="#!"><i class="commentLection__card__link fas fa-reply fa-xs"></i><span class="small"> reply</span></a>-->
+                            </div>
+                            <p class="commentLection__card__text small mb-0">
+                                {{ comment.text}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="{% static 'js/comment_form.js' %}"></script>
+
+    </section>
+
+
+
+
+
+{% endblock %}

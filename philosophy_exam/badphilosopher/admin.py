@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Lections, Seminars, CommentLection
+from .models import Lections, Seminars, CommentLection, CommentSeminar
+
 
 class PostAdmin(admin.ModelAdmin):
     pass
@@ -21,8 +22,6 @@ class LectionsPostAdmin(admin.ModelAdmin):
     list_display_links = ("number", "name_question", )
 
 
-
-
 @admin.register(CommentLection)
 class SeminarsPostAdmin(admin.ModelAdmin):
     list_display = ["name", "text", "post"]
@@ -41,5 +40,11 @@ class SeminarsPostAdmin(admin.ModelAdmin):
     search_fields = ("name_question", "answer")
     list_display_links = ("number", "name_question",)
 
+@admin.register(CommentSeminar)
+class SeminarsPostAdmin(admin.ModelAdmin):
+    list_display = ["name", "text", "post"]
+    # ordering = ('number',)
+    save_as = True
+    save_on_top = True
 
 
