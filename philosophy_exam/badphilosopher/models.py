@@ -7,10 +7,10 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # модель ответов Антонюка
 class Lections(models.Model):
-    number = models.IntegerField(unique=True)
-    name_question = models.TextField(blank=True, null=True)
-    answer = RichTextUploadingField(blank=True, null=True)
-    visible = models.BooleanField(default=True)
+    number = models.IntegerField(verbose_name="Номер", unique=True)
+    name_question = models.TextField(verbose_name="Вопрос", blank=True, null=True)
+    answer = RichTextUploadingField(verbose_name="Ответ", blank=True, null=True)
+    visible = models.BooleanField(verbose_name="Опубликован", default=True)
 
     def __str__(self):
         # для отображения в админке
@@ -22,10 +22,10 @@ class Lections(models.Model):
 
 # модель ответов Фурсова
 class Seminars(models.Model):
-    number = models.IntegerField(unique=True)
-    name_question = models.TextField(blank=True, null=True)
-    answer = RichTextUploadingField(blank=True, null=True)
-    visible = models.BooleanField(default=True)
+    number = models.IntegerField(verbose_name="Номер", unique=True)
+    name_question = models.TextField(verbose_name="Вопрос", blank=True, null=True)
+    answer = RichTextUploadingField(verbose_name="Ответ", blank=True, null=True)
+    visible = models.BooleanField(verbose_name="Опубликован", default=True)
 
     def __str__(self):
         # для отображения в админке

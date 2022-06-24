@@ -62,6 +62,7 @@ class SeminarsAnswerListView(ListView):
     queryset = Seminars.objects.order_by('number').all()
     context_object_name = 'achieves_obj'
 
+
 class SeminarsDetailedAnswerlView(DetailView):
     """ Семинары. Страница одного ответа """
     model = Seminars

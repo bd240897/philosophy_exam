@@ -10,6 +10,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/detailed_answer.css' %}">
 {% endblock %}
 
+<!-- НАЗВАНИЕ СТРАНИЦЫ -->
+
+{% block title %}
+Вопрос №{{answer.number}}
+{% endblock %}
 
 <!--ОТВЕТЫ-->
 
@@ -113,9 +118,5 @@
         <script src="{% static 'js/comment_form.js' %}"></script>
 
     </section>
-
-
-
-
 
 {% endblock %}

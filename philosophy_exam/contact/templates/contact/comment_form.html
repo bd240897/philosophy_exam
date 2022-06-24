@@ -4,9 +4,19 @@
 
 {% load static %}
 
+<!-- ДОП СТИЛИ -->
+
 {% block head_block %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/comment_form.css' %}">
 {% endblock %}
+
+<!-- НАЗВАНИЕ СТРАНИЦЫ -->
+
+{% block title %}
+Обратная связь
+{% endblock %}
+
+<!-- ОБРАТНАЯ СВЯЗЬ -->
 
 {% block answers %}
 <section class="contact">
