@@ -23,8 +23,7 @@ RUN pip install -r production.txt
 # копируем содержимое текущей папки в контейнер
 COPY . .
 
-CMD ["python", "./manage.py", "makemigrations"]
-CMD ["python", "./manage.py", "migrate"]
+ENTRYPOINT ["entrypoint.sh"]
 
 #RUN chmod +x /usr/src/mysite/entrypoint.sh
 
