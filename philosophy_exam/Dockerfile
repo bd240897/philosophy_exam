@@ -23,8 +23,9 @@ RUN pip install -r production.txt
 # копируем содержимое текущей папки в контейнер
 COPY . .
 
+RUN chmod +x ./entrypoint.sh
 COPY ./entrypoint.sh ./usr/src/philosophy_exam
-#ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 
 #RUN chmod +x /usr/src/mysite/entrypoint.sh
 
