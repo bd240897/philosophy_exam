@@ -16,7 +16,6 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 ROOT_DIR = environ.Path(__file__) - 3
-APPS_DIR = ROOT_DIR.path('project')
 
 # Find environ file
 env = environ.Env()
@@ -136,9 +135,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = str(ROOT_DIR('static'))
-STATICFILES_DIRS = (
-    str(APPS_DIR.path('static')),
-)
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -146,13 +143,13 @@ STATICFILES_FINDERS = (
 
 # Media files (CSS, JavaScript, Images)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = str(APPS_DIR('media'))
+MEDIA_ROOT = str(ROOT_DIR.path('media'))
 
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# ///////// ПАПКА ДЛЯ МЕДИК ////////////////
+# ///////// ПАПКА ДЛЯ МЕДИА ////////////////
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
