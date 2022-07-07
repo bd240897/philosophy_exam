@@ -25,7 +25,7 @@ COPY . .
 
 RUN chmod +x ./entrypoint.sh
 COPY ./entrypoint.sh ./usr/src/philosophy_exam
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["./usr/src/philosophy_exam/entrypoint.sh"]
 
 #RUN chmod +x /usr/src/mysite/entrypoint.sh
 
