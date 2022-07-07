@@ -17,6 +17,7 @@ RUN apk update \
 # устанавливаем зависимости
 RUN pip install --upgrade pip
 COPY ./requirements/production.txt .
+COPY ./requirements/base.txt .
 RUN pip install -r production.txt
 
 # копируем содержимое текущей папки в контейнер
