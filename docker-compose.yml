@@ -20,7 +20,7 @@ services:
       - ./.env.superuser
     depends_on:
       - db
-    entrypoint: ["entrypoint.sh"]
+    entrypoint: ./entrypoint.sh
 
   db:
     # Образ и версия базы, которую мы будем использовать
