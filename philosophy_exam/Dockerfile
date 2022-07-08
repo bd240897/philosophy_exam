@@ -34,6 +34,4 @@ ENTRYPOINT ["/usr/src/philosophy_exam/entrypoint.sh"]
 #   email='$DJANGO_SUPERUSER_EMAIL', \
 #   password='$DJANGO_SUPERUSER_PASSWORD')
 
-RUN DJANGO_SUPERUSER_PASSWORD=Tr0ub4dor@3 python manage.py createsuperuser --noinput administator
-
 #ENTRYPOINT ["/usr/src/mysite/entrypoint.sh"]
