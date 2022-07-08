@@ -1,7 +1,9 @@
 # команда для испорта данных их БД
 python manage.py dumpdata --exclude auth.permission --exclude contenttypes >db.json
 python -Xutf8 manage.py dumpdata badphilosopher > 1.json
-
+python -Xutf8 manage.py dumpdata badphilosopher --output bd.json
+# РЕШЕНИЕ ВЗЯТО ОТ СЮДА
+https://question-it.com/questions/758799/django-ne-mozhet-zagruzit-dannye-s-oshibkoj-deserializatsii
 
 // Django beget
 part 25

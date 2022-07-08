@@ -24,7 +24,7 @@ parm_msg = {"type": "text",
             "style": "height: 200px", }
 
 class CommentLectionForm(forms.ModelForm):
-    # captcha = CaptchaField(label='Are you an human?')
+    captcha = CaptchaField(label='Are you an human?')
 
     # def clean(self):
     #     print("You have forgotten about Fred!")
